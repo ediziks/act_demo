@@ -21,6 +21,12 @@ jobs:
           export PATH="/home/runner/.pyenv/bin:$PATH"
           eval "$(pyenv init -)"
           eval "$(pyenv virtualenv-init -)"
+      - name: Eval pyenv and restart shell
+        run: |
+          export PATH="/home/runner/.pyenv/bin:$PATH"
+          eval "$(pyenv init -)"
+          eval "$(pyenv virtualenv-init -)"
+          exec $SHELL
       - name: Create virtualenv
         run: |
           pyenv install 3.8.0
